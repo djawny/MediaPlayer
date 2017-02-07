@@ -8,7 +8,7 @@ import android.widget.SeekBar;
 
 public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
-    private MediaPlayer dubstep;
+    private MediaPlayer dubStep;
     private SeekBar volumeBar;
 
     @Override
@@ -17,20 +17,19 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         setContentView(R.layout.activity_main);
 
         volumeBar = (SeekBar) findViewById(R.id.volumeBar);
-        dubstep = MediaPlayer.create(getApplicationContext(), R.raw.bensound_dubstep);
+        dubStep = MediaPlayer.create(getApplicationContext(), R.raw.bensound_dubstep);
         volumeBar.setOnSeekBarChangeListener(this);
     }
 
     public void buttonClicked(View view) {
         switch (view.getId()) {
             case R.id.playButton:
-                if (!dubstep.isPlaying())
-                    dubstep.start();
+                if (!dubStep.isPlaying())
+                    dubStep.start();
                 break;
             case R.id.pauseButton:
-                if (dubstep.isPlaying())
-                    dubstep.pause();
-                else dubstep.start();
+                if (dubStep.isPlaying())
+                    dubStep.pause();
                 break;
         }
     }
@@ -38,16 +37,14 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         float volume = progress / 100f;
-        dubstep.setVolume(volume, volume);
+        dubStep.setVolume(volume, volume);
     }
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
-
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-
     }
 }
